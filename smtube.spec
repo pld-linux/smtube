@@ -12,11 +12,11 @@ Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smtube/%{name}-%{version}.tar.bz2
 # Source0-md5:	c749cc93176d051f01e4c412d84196c5
 URL:		http://www.smtube.org/
-BuildRequires:	Qt3Support-devel
+BuildRequires:	QtWebKit-devel
+BuildRequires:	QtScript-devel
 BuildRequires:	QtCore-devel
 BuildRequires:	QtGui-devel
 BuildRequires:	QtNetwork-devel
-BuildRequires:	QtOpenGL-devel
 BuildRequires:	QtXml-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
