@@ -21,6 +21,7 @@ BuildRequires:	QtXml-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	rpmbuild(find_lang) >= 1.37
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
 Requires:	desktop-file-utils
@@ -57,6 +58,8 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang %{name} --with-qm
+
 %{__rm} -r $RPM_BUILD_ROOT%{_docdir}/smtube
 
 %clean
@@ -65,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %update_desktop_database
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc Readme.txt Release_notes.txt Changelog
 %attr(755,root,root) %{_bindir}/smtube
@@ -73,31 +76,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/smtube.png
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/translations
-%lang(bg) %{_datadir}/%{name}/translations/smtube_bg.qm
-%lang(cs) %{_datadir}/%{name}/translations/smtube_cs.qm
-%lang(da) %{_datadir}/%{name}/translations/smtube_da.qm
-%lang(de) %{_datadir}/%{name}/translations/smtube_de.qm
-%lang(en) %{_datadir}/%{name}/translations/smtube_en.qm
-%lang(en_GB) %{_datadir}/%{name}/translations/smtube_en_GB.qm
-%lang(es) %{_datadir}/%{name}/translations/smtube_es.qm
-%lang(eu) %{_datadir}/%{name}/translations/smtube_eu.qm
-%lang(fr) %{_datadir}/%{name}/translations/smtube_fr.qm
-%lang(gl) %{_datadir}/%{name}/translations/smtube_gl.qm
-%lang(he_IL) %{_datadir}/%{name}/translations/smtube_he_IL.qm
-%lang(hr) %{_datadir}/%{name}/translations/smtube_hr.qm
-%lang(hu) %{_datadir}/%{name}/translations/smtube_hu.qm
-%lang(it) %{_datadir}/%{name}/translations/smtube_it.qm
-%lang(ja) %{_datadir}/%{name}/translations/smtube_ja.qm
-%lang(ko) %{_datadir}/%{name}/translations/smtube_ko.qm
-%lang(ms) %{_datadir}/%{name}/translations/smtube_ms.qm
-%lang(nn_NO) %{_datadir}/%{name}/translations/smtube_nn_NO.qm
-%lang(pl) %{_datadir}/%{name}/translations/smtube_pl.qm
-%lang(pt) %{_datadir}/%{name}/translations/smtube_pt.qm
-%lang(pt_BR) %{_datadir}/%{name}/translations/smtube_pt_BR.qm
-%lang(ru) %{_datadir}/%{name}/translations/smtube_ru.qm
-%lang(sq) %{_datadir}/%{name}/translations/smtube_sq.qm
-%lang(sr) %{_datadir}/%{name}/translations/smtube_sr.qm
-%lang(tr) %{_datadir}/%{name}/translations/smtube_tr.qm
-%lang(uk) %{_datadir}/%{name}/translations/smtube_uk.qm
-%lang(zh_CN) %{_datadir}/%{name}/translations/smtube_zh_CN.qm
-%lang(zh_TW) %{_datadir}/%{name}/translations/smtube_zh_TW.qm
