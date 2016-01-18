@@ -5,12 +5,12 @@
 %define		smver	14.8.0
 Summary:	SMTube - YouTube browser for SMPlayer
 Name:		smtube
-Version:	15.11.0
+Version:	16.1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smtube/%{name}-%{version}.tar.bz2
-# Source0-md5:	c749cc93176d051f01e4c412d84196c5
+# Source0-md5:	33bb92f48dc18240d7ff208569f4a67c
 URL:		http://www.smtube.org/
 BuildRequires:	QtWebKit-devel
 BuildRequires:	QtScript-devel
