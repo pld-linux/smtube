@@ -1,26 +1,27 @@
 # TODO
 # - smtube: use system qtsingleapplication
 
-%define		qtver	4.3.3-3
+%define		qtver	5.0
 %define		smver	14.8.0
 Summary:	SMTube - YouTube browser for SMPlayer
 Name:		smtube
-Version:	16.1.0
+Version:	20.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://downloads.sourceforge.net/smtube/%{name}-%{version}.tar.bz2
-# Source0-md5:	33bb92f48dc18240d7ff208569f4a67c
+# Source0-md5:	78e91392cf6faf6a94b566a3c33806c1
 URL:		http://www.smtube.org/
-BuildRequires:	QtWebKit-devel
-BuildRequires:	QtScript-devel
-BuildRequires:	QtCore-devel
-BuildRequires:	QtGui-devel
-BuildRequires:	QtNetwork-devel
-BuildRequires:	QtXml-devel
-BuildRequires:	qt4-build >= %{qtver}
-BuildRequires:	qt4-linguist >= %{qtver}
-BuildRequires:	qt4-qmake >= %{qtver}
+BuildRequires:	Qt5WebKit-devel
+BuildRequires:	Qt5Script-devel
+BuildRequires:	Qt5Core-devel
+BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5Network-devel
+BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt5Xml-devel
+BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt5-linguist >= %{qtver}
+BuildRequires:	qt5-qmake >= %{qtver}
 BuildRequires:	rpmbuild(find_lang) >= 1.37
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	sed >= 4.0
@@ -49,8 +50,8 @@ particularly with HD content.
 %build
 %{__make} \
 	PREFIX=%{_prefix} \
-	QMAKE=qmake-qt4 \
-	LRELEASE=lrelease-qt4
+	QMAKE=qmake-qt5 \
+	LRELEASE=lrelease-qt5
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -67,6 +68,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_desktop_database
+%update_icon_cache hicolor
+
+%postun
+%update_desktop_database
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
