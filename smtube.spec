@@ -5,13 +5,13 @@
 %define		smver	14.8.0
 Summary:	SMTube - YouTube browser for SMPlayer
 Name:		smtube
-Version:	20.6.0
+Version:	21.7.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://downloads.sourceforge.net/smtube/%{name}-%{version}.tar.bz2
-# Source0-md5:	78e91392cf6faf6a94b566a3c33806c1
-URL:		http://www.smtube.org/
+Source0:	https://downloads.sourceforge.net/smtube/%{name}-%{version}.tar.bz2
+# Source0-md5:	f4e00a21b870b359e895bf8cd565fdce
+URL:		https://www.smtube.org/
 BuildRequires:	Qt5WebKit-devel
 BuildRequires:	Qt5Script-devel
 BuildRequires:	Qt5Core-devel
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc Readme.txt Release_notes.txt Changelog
+%doc Readme.txt README.md Release_notes.md
 %attr(755,root,root) %{_bindir}/smtube
 %{_desktopdir}/smtube.desktop
 %{_iconsdir}/hicolor/*/apps/smtube.png
